@@ -33,6 +33,7 @@ class Controle_prof(Professor):
         notas[self.especialidade] = nota, #aluno 
   
     def cadastro_professor(self):
+        
         print('Novo professor:')
         nome = input('Digite aqui o nome do novo professor: ')
         idade = input('Digite aqui a idade do novo professor: ')
@@ -40,7 +41,7 @@ class Controle_prof(Professor):
         especialidade = input('Digite aqui a àrea de especialidade do novo professor: ')
         n_de_controle = int(input('Digite aqui o numero de cadastro desse professor: '))
         professor = Controle_prof(nome, idade, salario, especialidade, n_de_controle)
-        self.professores.append(professor.__dict__)
+        Escola.professores.append(professor.__dict__)
 
 
 class Escola():
