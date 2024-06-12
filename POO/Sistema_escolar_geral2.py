@@ -38,6 +38,7 @@ class Aluno_novo(Aluno):
 
 
 class Escola_nova(Escola):
+    notas = []
     matriculados = []
     nossos_professores = []
     
@@ -78,16 +79,33 @@ class Escola_nova(Escola):
             self.ver_professores()
     
   
-            
-            
-        
-   
     def ver_professores(self):
         professor_novo = []
         for item in reversed(self.nossos_professores):
             professor_novo.append(str(item)) 
             print(professor_novo)
             return professor_novo
+        
+    
+    def lancar_notas(self, lista):
+        
+        nova_nota ={
+            'Aluno': ' ',
+            'Matéria': ' ',
+            'Nota': ' '
+        }
+        materia = input('Digite aqui a sua matéria: ')
+        self.ver_matriculados()
+        matricula_aluno = input('Digite o número de matrícula do aluno: ') 
+        nota = int(input('Digite aqui a nota do aluno: '))
+        
+        for crianca in alunos:
+            if crianca['matricula'] == matricula_aluno:
+                nova_nota['Aluno'] = crianca['nome']
+        nova_nota['Matéria'] = materia
+        nova_nota['Nota'] = nota
+        Escola_nova.notas.append(nova_nota)
+        print(self.notas)
         
         
 escolas = Escola_nova('escola', 'rua1', 'nsei')
@@ -105,3 +123,5 @@ class Novo_professor(Professor):
 escolas.novo_aluno(alunos)
 
 escolas.novo_professor(professores)
+
+escolas.lancar_notas(alunos)
