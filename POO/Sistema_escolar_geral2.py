@@ -6,6 +6,7 @@
 # Nesse novo caso a chave "ano" corresponde ao ano de ingresso do aluno na instituição
 # A chave idade foi substituída pela chave data_nascimento
 from Sistema_escolar_geral import Escola, Aluno, Professor
+import time
 
 alunos = [
     {"nome": "Maria", "data_nascimento": "10/05/2005", "ano": 2023, "matricula": "A123"},
@@ -91,10 +92,15 @@ class Escola_nova(Escola):
         
         nova_nota ={
             'Aluno': ' ',
+            'Professor': '',
             'Matéria': ' ',
             'Nota': ' '
         }
         materia = input('Digite aqui a sua matéria: ')
+        for prof in professores:
+            if prof['especialidade'] == materia:
+                nova_nota['Professor'] = prof['nome']
+
         self.ver_matriculados()
         matricula_aluno = input('Digite o número de matrícula do aluno: ') 
         nota = int(input('Digite aqui a nota do aluno: '))
