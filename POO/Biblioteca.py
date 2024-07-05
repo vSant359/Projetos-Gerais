@@ -16,10 +16,18 @@ class Livro():
 
 class Membro():
     membros = []
-    def _init_(self, cadastro, nome, historico = None):
+    def __init__(self, cadastro, nome, historico = None):
+        pass
         self.cadastro = cadastro
         self.nome = nome
         self.historico = historico # provavelmente funcionará bem com dicionário
+
+    def ver_membros (self):
+        novo_membro = []
+        for item in Membro.membros:
+            novo_membro.append(str(item))
+            print(novo_membro[-1])
+        return novo_membro
 
 
 class Biblioteca():
@@ -32,12 +40,6 @@ class Biblioteca():
         self.estante.append(item)
         return self.estante
 
-    # def estante_livros (self):
-    #     if len(self.estante) == 0:
-    #         id = 1
-    #     else:
-    #         id = self.estante[-1]
-    #     return id
 
     def adicionando_status():
         status_livro = input('Digite emprestado ou em estoque para definir o status do livro: ')
@@ -60,10 +62,46 @@ class Biblioteca():
 
     def cadastrar_membros(self):
         nome = input('Digite aqui o nome do novo membro: ')
-        cadastro = 1
+        cadastro = len(Membro.membros)
         membro = Membro (cadastro, nome)
-        Membro.membros.append(membro)
+        Membro.membros.append(membro.__dict__)
+        Membro.ver_membros(Membro)
         main()
+
+    def pesquisando_nome(self, livro_escolhido): 
+            for livro in Biblioteca.estante: 
+                if livro['titulo'] == livro_escolhido:
+                    print(f"0 livro {livro['titulo']} está {livro['status']}")
+            return livro
+          
+        
+    
+    def pesquisando_autor(self, autor_escolhido):
+        print(f'Vamos ver os livros de {autor_escolhido}...')
+        for autor in Biblioteca.estante:
+            if autor['autor'] == autor_escolhido:
+                print(f'Livro: {autor["titulo"]}, autor: {autor["autor"]}, status: {autor["status"]}')
+            if autor['autor'] != autor_escolhido:
+                print('Livro não encontrado')
+        return autor
+            
+        
+    def pesquisando_id(self):
+        id_escolhido = int(input("Digite aqui o id do liro: "))
+        for id in Biblioteca.estante:
+            if id['id'] == id_escolhido:
+                print(f'O id {id["id"]} é referente ao livro {id["titulo"]} e seu status é {id["status"]}')
+            if id['id'] != id_escolhido:
+                print('Livro não encontrado')
+        return id["titulo"]
+
+    def pesquisando_membro(self, membro_escolhido):
+        for membro in Membro.membros:
+            if membro['nome'] == membro_escolhido:
+                print(f'Seu nome é {membro["nome"]} seu numero de cadastro é {membro["cadastro"]} e seu histórico é {membro["historico"]}')
+            if membro['nome'] != membro_escolhido:
+                print('Membro não encontrado')
+        return membro
         
     def pesquisar(self):
         print('Como você gostaria de pesquisar seu livro?')
@@ -77,30 +115,27 @@ class Biblioteca():
         elif escolha == 2:
             nome_autor = input('Digite aqui o nome do autor do livro: ')
             self.pesquisando_autor(Biblioteca, nome_autor)
-            main()
 
-    def pesquisando_nome (self, livro): 
-        for item in Biblioteca.estante: 
-            if item['titulo'] == livro:
-                print(f"0 livro {item['titulo']} está {item['status']}")
-                main()
-        
-    
-    def pesquisando_autor(self, autor):
-        print(f'Vamos ver os livros de {autor}...')
-        for item in Biblioteca.estante:
-            if item['autor'] == autor:
-                print(f'Livro: {item["titulo"]}, autor: {item["autor"]}, status: {item["status"]}')
-            if item['autor'] != autor:
-                print('Livro não encontrado')
-                main()
+        elif escolha == 3:
+            
+            self.pesquisando_id(Biblioteca, id)
+
+        resultado_pesquisa = self.pesquisando_nome()
+        return resultado_pesquisa
+            # main()
         
 
-def emprestar(self):
-    pass
 
-def devolucao(self):
-    pass
+    def emprestar(self):
+      nome_membro = input('Digite aqui seu nome para localizarmos seu cadastro: ')
+      self.pesquisando_membro(Biblioteca, nome_membro)
+      self.pesquisar(Biblioteca)
+      result = self.pesquisar()
+      print(result)
+      
+
+    def devolucao(self):
+        pass
 
 def main():
     print('Olá, o que você deseja fazer?')
@@ -116,6 +151,8 @@ def main():
         Biblioteca.cadastrar_membros (Biblioteca)
     elif escolha == 3:
         Biblioteca.pesquisar (Biblioteca)
+    elif escolha == 4:
+        Biblioteca.emprestar(Biblioteca)
 
 if __name__ == '__main__':
     main()
