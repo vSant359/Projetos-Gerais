@@ -38,15 +38,14 @@ class Livro():
         self.autor = autor
         self.status = status
 
-    def __str__(self):
-        status_formatado = "em estoque" if self.status else "emprestado"
-        return f"ID: {self.id}, Título: {self.titulo}, Autor: {self.autor}, Status: {status_formatado}"
+    
 
 
     def ver_livros (self, estante):
         for livro in estante:
             # if livro['status'] == True:
                 print("ID: {}, Título: {}, Autor: {}, Status: {}".format(livro['id'], livro['titulo'], livro['autor'], 'em estoque' if livro['status'] else 'emprestado'))
+
 
 
 class Membro():
@@ -69,6 +68,16 @@ class Biblioteca():
     def init (self):
         self.catalogo_livros = []
         self.registro_membros = []
+    
+    # def bool_to_str(self, livro_escolhido):
+    #     status_formatado = "em estoque" if livro_escolhido['status'] else "emprestado"
+    #     return status_formatado
+
+
+    # def __str__(self, livro_escolhido):
+    #     status_formatado = "em estoque" if self.status else "emprestado"
+    #     # return f"ID: {self.id}, Título: {self.titulo}, Autor: {self.autor}, Status: {status_formatado}"
+    #     return status_formatado
 
     def adicionar_estante(self, item):
         self.estante.append(item)
@@ -85,6 +94,7 @@ class Biblioteca():
             Biblioteca.estante.append(livro.__dict__)
         livro.ver_livros(Biblioteca.estante)
         main()
+        
 
     def alterar_status(self, livrin, novo_status):
         status_novin = ''
@@ -111,6 +121,7 @@ class Biblioteca():
             Biblioteca.nossos_membros.append(membro.__dict__)
         Membro.ver_membros(Membro)
         main()
+      
 
     def pesquisando_nome(self, livro_escolhido): 
             for livro in Biblioteca.estante:
@@ -119,38 +130,42 @@ class Biblioteca():
                         print(f'O livro {livro_escolhido} foi emprestado para outro cliente.')
                         self.pesquisar(Biblioteca)
                     else:
-                         return livro['titulo']
-                    
-                # elif livro['titulo'] not in Biblioteca.estante:
-                #     print(f'O livro {livro_escolhido} não está em nosso catálogo.')
+                        # resultado = self.bool_to_str(self, livro)
+                        return f"O livro {livro['titulo']}, esscrito pelo autor {livro['autor']}, está {'em estoque' if True else 'emprestado'}"
+                        
                     self.pesquisar(Biblioteca)
-            # main()
         
     
     def pesquisando_autor(self, autor_escolhido):
         for autor in Biblioteca.estante:
             if autor['autor'] == autor_escolhido:
-                print(f'O autor {autor_escolhido} escreveu o livro {autor}')
-                
-            elif autor['autor'] != autor_escolhido:
-                print(f'Não encontramos nenhum livro de {autor_escolhido}')
-        return autor['titulo']
+                if autor['status'] == False:
+                   print(f"O autor {autor_escolhido} escreveu o livro {autor['titulo']}, porém ele já foi emprestado para outro cliente.")
+                else:
+                    resultado2 = f"O autor {autor_escolhido} escreveu o livro {autor['titulo']}, e seu status é {'em estoque' if True else 'emprestado'}"
+                    return resultado2
+            elif autor_escolhido not in Biblioteca.estante:
+                print(f"Não encontramos nenhum livro do autor {autor_escolhido}")
             
         
     def pesquisando_id(self, id_escolhido):   
         for id in Biblioteca.estante:
             if id['id'] == id_escolhido:
-                return id['titulo']
-            elif id['id'] != id_escolhido:
-                print(f'Não encontramos nenhum livro com o id {id}')
+                if id['status'] == False:
+                    print(f"O autor {id['autor']} escreveu o livro {id['titulo']}, porém ele já foi emprestado para outro cliente.")
+                else:
+                    resultado2 = f"O id {id_escolhido} refere-se ao livro {id['titulo']}, escrito por {id['autor']} e o status é {'em estoque' if True else 'Emprestado'}"
+                    return resultado2
+            # elif id['id'] != id_escolhido:
+            #     print(f'Não encontramos nenhum livro com o id {id}')
 
     def pesquisando_membro(self, membro_escolhido):
         for membro in Biblioteca.nossos_membros:
             if membro['nome'] == membro_escolhido:
                 print(f'Seu nome é {membro["nome"]} seu numero de cadastro é {membro["cadastro"]} e seu histórico é {membro["historico"]}')
                 return membro_escolhido
-            elif membro['nome'] != membro_escolhido:
-                print('Membro não encontrado')
+            # elif membro['nome'] != membro_escolhido:
+            #     print('Membro não encontrado')
    
         
     def pesquisar(self):
@@ -161,48 +176,50 @@ class Biblioteca():
         escolha = int(input('Digite o numero da opção desejada: '))
         if escolha == 1:
             global titulo
-            titulo = input('Digite o título do livro que está procurando: ')
-            self.pesquisando_nome(Biblioteca, titulo)
-            resultado_pesquisa = self.pesquisando_nome(Biblioteca, titulo)
+            livro_escolhido = input('Digite o título do livro que está procurando: ')
+            self.pesquisando_nome(Biblioteca, livro_escolhido)
+            resultado_pesquisa = self.pesquisando_nome(Biblioteca, livro_escolhido)
             print(f"Resultados: {resultado_pesquisa}")
-            return resultado_pesquisa
+            
         elif escolha == 2:
             nome_autor = input('Digite aqui o nome do autor do livro: ')
             print(f'Vamos ver os livros de {nome_autor}...')
             self.pesquisando_autor(Biblioteca, nome_autor)
             resultado_pesquisa2 = self.pesquisando_autor(Biblioteca, nome_autor)
             print(f'Resultados:{resultado_pesquisa2}')
-            return resultado_pesquisa2
+
         elif escolha == 3:    
             id_livro = int(input("Digite aqui o id do liro: "))
             self.pesquisando_id(Biblioteca, id_livro)
             resultado_pesquisa3 = self.pesquisando_id(Biblioteca, id_livro)
             print(f'Resultados: {resultado_pesquisa3}')
-            return resultado_pesquisa3
+  
         else:
             print('Opção inválida')
             self.pesquisar(Biblioteca)
         main()
         
     def emprestando(self, membro, livro_escolhido):
-        self.alterar_status(Biblioteca, result, True)
         final_result = self.alterar_status(Biblioteca, result, False)
         for pessoinha in membros:
             if pessoinha['nome'] == membro:
-                pessoinha['historico'] = {'Livro': livro_escolhido, 'Status': final_result}
+                history = {'Livro': livro_escolhido, 'Status': final_result}
+                pessoinha['historico'].append(history)
             print(pessoinha)
-            main()
+           
             
 
     def emprestar(self):
       nome_membro = input('Digite aqui seu nome para localizarmos seu cadastro: ')
       result_nome = self.pesquisando_membro(Biblioteca, nome_membro)
-      global result
+      global result # Pra que esse global mesmo?
       result = self.pesquisar(Biblioteca)
-      escolha = input(f'{result_nome}, gostaria de pegar o livro {result} emprestado? (s/n)')
-      if escolha == 's':
+     
+      escolha = int(input(f'{result_nome}, gostaria de pegar o livro {result} emprestado? (1/2)'))
+      if escolha == 1:
         self.emprestando(Biblioteca, result_nome, result)
         print(f'O livro {result}, foi emprestado.')
+        main()
         
      
     
@@ -226,6 +243,7 @@ def main():
         Biblioteca.pesquisar (Biblioteca)
     elif escolha == 4:
         Biblioteca.emprestar(Biblioteca)
+
 
 if __name__ == '__main__':
     main()
