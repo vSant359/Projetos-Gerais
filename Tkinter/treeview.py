@@ -1,4 +1,4 @@
-git from tkinter import *
+from tkinter import *
 from tkinter.ttk import *
 
 ten_emails = ['amanda@gmail.com', 'thiago@gmail.com', 'luis@gmail.com', 'victor@gmail.com', 'carla@gmail.com', 'raiane@gmail.com', 'camille@gmail.com', 'roberto@gmail.com', 'jose@gmail.com', 'felipe@gmail.com']

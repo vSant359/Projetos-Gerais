@@ -99,6 +99,8 @@ class Biblioteca():
             if livro.titulo == livrin.titulo:
                 if livro.status:
                     livro.status = False
+                else:
+                    livro.status = True
                 return livro
         
 
@@ -115,9 +117,6 @@ class Biblioteca():
         for livro in self.estante:
             campo_valor_normalizado = self.normalizar_texto(Biblioteca, str(getattr(livro, campo)))
             if campo_valor_normalizado == valor_normalizado:
-                if  not livro.status:
-                    print(f"O livro {livro.titulo} já foi emprestado.")
-                    return None
                 return livro
         print(f"Não encontramos nenhum livro com {campo} {valor}.")
         return None
@@ -148,6 +147,7 @@ class Biblioteca():
             if resultado:
                 print(f"O livro {resultado.titulo} de {resultado.autor} está {'em estoque' if resultado.status else 'emprestado'}")
                 return resultado
+            
                 
                     
             
@@ -164,33 +164,56 @@ class Biblioteca():
             result_nome = self.pesquisar_membro(Biblioteca, nome_membro)
             if result_nome:
                 result = self.iniciar_pesquisa(Biblioteca)
-                escolha = int(input(f"{result_nome.nome}, gostaria de pegar o livro {result.titulo} emprestado? (1/2)"))
-                if escolha == 1:
-                    final_result = self.alterar_status(Biblioteca, result)
-                    result_nome.historico.append(final_result.titulo)
-                    print(f"O livro {result.titulo}, foi emprestado.")
-                    main()
+                if result.status:
+                    escolha = int(input(f"{result_nome.nome}, gostaria de pegar o livro {result.titulo} emprestado? (1/2)"))
+                    if escolha == 1:
+                        final_result = self.alterar_status(Biblioteca, result)
+                        result_nome.historico.append(final_result.titulo)
+                        print(f"O livro {result.titulo}, foi emprestado.")
+                        main()
+                    else:
+                        result = self.iniciar_pesquisa(Biblioteca)
                 else:
-                    result = self.iniciar_pesquisa(Biblioteca)
+                    print('Este livro não está disponível, por favor selecione outro livro de sua escolha')
+                    print(Biblioteca.estante)
+                    self.emprestar(Biblioteca)
         except Exception as e:
             print(f"Ocorreu um erro {e}")
         main()
 
+    
+    def devolucao(self):
+        print('Para fazer a devolução vamos primeiramente localizar seu cadastro.')
+        cliente_nome = input('Digite aqui seu nome: ')
+        membro = self.pesquisar_membro(self, cliente_nome)
+        print('Agora vamos localizar qual livro você deseja devolver')
+        livro = self.iniciar_pesquisa(Biblioteca)
+        escolha = input(f"Você gostaria de devolver o livro {livro.titulo}? (s/n) ")
+        if escolha == "s":
+            atualizacao = self.alterar_status(Biblioteca, livro)
+            print(f"Certo, o livro {atualizacao.titulo} foi devolvido a biblioteca, agora ele está {'em estoque' if atualizacao.status else 'emprestado'}")
+            main()
+        else:
+            main()
 
+        
         
 def main():
     opcoes = [
-        'Adicionar um livro ao catálogo',
-        'Cadastrar um novo membro',
-        'Pesquisar um livro dentro do catálogo',
-        'Emprestar um livro a um membro',
-        'Registrar a devolução do livro para a biblioteca',
-        'Ver todos os livros na biblioteca'
+        '1) Adicionar um livro ao catálogo',
+        '2) Cadastrar um novo membro',
+        '3) Pesquisar um livro dentro do catálogo',
+        '4) Emprestar um livro a um membro',
+        '5) Registrar a devolução do livro para a biblioteca',
+        '6) Ver todos os livros na biblioteca',
+        '7) Ver todos os membros da biblioteca',
+        '8) Excluir livros da biblioteca',
+        '9) Excluir membros da biblioteca'
     ]
     
     print('Olá, o que você deseja fazer?')
     for i, opcao in enumerate(opcoes, 1):
-        print(f'{i}) {opcao}')
+       print(f'{i}) {opcao}')
     
     escolha = int(input('Digite o número da opção desejada: '))
     if escolha == 1:
@@ -202,12 +225,18 @@ def main():
     elif escolha == 4:
         Biblioteca.emprestar(Biblioteca)
     elif escolha == 5:
-        pass
+        Biblioteca.devolucao(Biblioteca)
     elif escolha == 6:
         print(Biblioteca.estante)
         main()
     elif escolha == 7:
         print(Biblioteca.nossos_membros)
+    elif escolha == 8:
+        pass
+    elif escolha == 9:
+        pass
+    elif escolha == 10:
+        pass
         
 if __name__ == '__main__':
     main()
