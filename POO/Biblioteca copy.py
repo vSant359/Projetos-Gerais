@@ -1,3 +1,5 @@
+import unidecode
+
 livros = [
     {"id": 0, "titulo": "O Senhor dos Anéis", "autor": "J.R.R. Tolkien", "status": True},
     {"id": 1, "titulo": "1984", "autor": "George Orwell", "status": False},
@@ -36,24 +38,23 @@ class Livro():
         self.autor = autor
         self.status = status
 
+    def __repr__ (self, estante): #Com essa def eu controlo como que os livros serão apresentados ao user e garanto que ele não retornará o valor Bool para o user.
+        for livro in estante:
+            print("ID: {}, Título: {}, Autor: {}, Status: {}".format(livro['id'], livro['titulo'], livro['autor'], 'em estoque' if livro['status'] else 'emprestado'))
+        main()
     
     def adicionar_catalogo(self): 
             print('Adicionando livro')
             for item in livros:
-                titulo = item['titulo'].upper() #Upper para facilitar o mecanismo de pesquisa, pretendo fazer com que seja possível salvar em upper mas apresentar com ortografia correta.
+                titulo = item['titulo']
                 id = item['id']
-                autor = item['autor'].upper()
+                autor = item['autor']
                 status = item['status']
                 livro = Livro(id, titulo, autor, status)
-                Biblioteca.estante.append(livro.__dict__)
-            livro.ver_livros(Biblioteca.estante)
+                Biblioteca.estante.append(livro)
+                print(Biblioteca.estante)
             main()
 
-
-    def ver_livros (self, estante): #Com essa def eu controlo como que os livros serão apresentados ao user e garanto que ele não retornará o valor Bool para o user.
-        for livro in estante:
-            print("ID: {}, Título: {}, Autor: {}, Status: {}".format(livro['id'], livro['titulo'], livro['autor'], 'em estoque' if livro['status'] else 'emprestado'))
-        main()
 
 
 
@@ -85,16 +86,17 @@ class Biblioteca():
     
 
     def alterar_status(self, livrin): #tenho que ver esse trem porque não ta funcionando
-        for livro in Biblioteca.estante:
+        for livro in self.estante:
             if livro['titulo'] == livrin:
-                livro['status'] = False
+                if livro['status']:
+                    livro.status = False
                 return livro
                 
 
     def cadastrar_membros(self):
         for item in membros:
             cadastro = item['cadastro']
-            nome = item['nome'].upper()
+            nome = item['nome']
             historico = item['historico']
             membro = Membro (cadastro, nome, historico)
             Biblioteca.nossos_membros.append(membro.__dict__)
@@ -102,38 +104,43 @@ class Biblioteca():
         main()
       
 
-    def pesquisando_nome(self, livro_escolhido): 
+    def pesquisando_nome(self, livro_escolhido):
+            livro_escolhido_normalizado = unidecode.unidecode(livro_escolhido.lower())
+
             for livro in Biblioteca.estante:
-                if livro['titulo'] == livro_escolhido:
+                titulo_normalizado = unidecode.unidecode(livro["titulo"].lower())
+                if titulo_normalizado == livro_escolhido_normalizado:
                     if livro['status'] == False:
-                        print(f'O livro {livro_escolhido} foi emprestado para outro cliente.')
+                        print(f'O livro {livro["titulo"]} foi emprestado para outro cliente.')
                         self.pesquisar(Biblioteca)
                         return None # Retorna None para indicar que o livro foi encontrado, mas já está emprestado
                     else:
                         return livro
             # Se o loop terminar e não encontrar o livro, exibe a mensagem
-            print(f"Não encontramos nenhum livro com o nome {livro_escolhido}")
             return None
     
-    def pesquisando_nome_devolucao(self, livro_escolhido):
-        for livro in Biblioteca.estante:
-            if livro['titulo'] == livro_escolhido:
-                return livro
-        print(f"Não encontramos nenhum livro com o nome {livro_escolhido}")
-        return None
+    # def pesquisando_nome_devolucao(self, livro_escolhido):
+    #     for livro in Biblioteca.estante:
+    #         if livro['titulo'] == livro_escolhido:
+    #             return livro
+    #     print(f"Não encontramos nenhum livro com o nome {livro_escolhido}")
+    #     return None
 
         
     
     def pesquisando_autor(self, autor_escolhido):
+        autor_escolhido_normalizado = unidecode.unidecode(autor_escolhido.lower())
+
         for autor in Biblioteca.estante:
-            if autor['autor'] == autor_escolhido:
+            autor_normalizado = unidecode.unidecode(autor["autor"])
+            if autor_normalizado == autor_escolhido_normalizado:
                 if autor['status'] == False:
                    print(f"O autor {autor_escolhido} escreveu o livro {autor['titulo']}, porém ele já foi emprestado para outro cliente.")
                    self.pesquisar(Biblioteca)
                    return None
                 else:
                     return autor
-        print(f"Não encontramos nenhum livro escrito por {autor_escolhido}")
+        return None
             
         
     def pesquisando_id(self, id_escolhido):
@@ -146,7 +153,6 @@ class Biblioteca():
                 else:
                     return livro
         # Se o loop terminar e não encontrar o livro, exibe a mensagem
-        print(f"Não encontramos nenhum livro com o ID {id_escolhido}")
         return None
 
 
@@ -182,11 +188,12 @@ class Biblioteca():
             print(f'Vamos ver os livros de {nome_autor}...')
             self.pesquisando_autor(Biblioteca, nome_autor)
             resultado_pesquisa2 = self.pesquisando_autor(Biblioteca, nome_autor)
-            if resultado_pesquisa2 is not None:
-                print(f"O autor {resultado_pesquisa2['autor']} escreveu o livro {resultado_pesquisa2['titulo']}, e seu status é {'em estoque' if True else 'emprestado'}")
+            if resultado_pesquisa2 is None:
+                print(f"Não encontramos nenhum livro do autor {nome_autor}")
                 return resultado_pesquisa2
             else:
-                print(f"Não encontramos nenhum livro do autor {nome_autor}")
+                print(f"O autor {resultado_pesquisa2['autor']} escreveu o livro {resultado_pesquisa2['titulo']}, e seu status é {'em estoque' if True else 'emprestado'}")
+                
 
         elif escolha == 3:
             id_livro = None   
@@ -216,15 +223,19 @@ class Biblioteca():
 
 
     def emprestar(self):
-      nome_membro = input('Digite aqui seu nome para localizarmos seu cadastro: ').upper()
+      nome_membro = input('Digite aqui seu nome para localizarmos seu cadastro: ')
       result_nome = self.pesquisando_membro(Biblioteca, nome_membro)
-      result = self.pesquisar(Biblioteca)
-      escolha = int(input(f"{result_nome['nome']}, gostaria de pegar o livro {result['titulo']} emprestado? (1/2)"))
-      if escolha == 1:
-        final_result = self.alterar_status(Biblioteca, result)
-        result_nome['historico'].append(final_result)
-        print(f"O livro {result['titulo']}, foi emprestado.")
-        main()
+      if result_nome == None:
+          print(f'Não conseguimos localizar o membro {nome_membro}')
+          self.emprestar(self)
+      else:
+        result = self.pesquisar(Biblioteca)
+        escolha = int(input(f"{result_nome['nome']}, gostaria de pegar o livro {result['titulo']} emprestado? (1/2)"))
+        if escolha == 1:
+            final_result = self.alterar_status(Biblioteca, result)
+            result_nome['historico'].append(final_result)
+            print(f"O livro {result['titulo']}, foi emprestado.")
+            main()
 
 
     def devolucao(self):
@@ -233,7 +244,7 @@ class Biblioteca():
         membro_da_vez = self.pesquisando_membro(self, teu_nome)
         print('Agora vamos localizar qual livro você deseja devolver')
         nome_livro = input('Digite aqui o nome do livro que irá devolver: ')
-        livro_da_vez = self.pesquisando_nome_devolucao(self, nome_livro)
+        livro_da_vez = self.pesquisando_nome(self, nome_livro)
         escolha = input(f"Você gostaria de devolver o livro {livro_da_vez}?(s/n) ")
         if escolha == "s":
             atualizacao = self.alterar_status(Biblioteca)
