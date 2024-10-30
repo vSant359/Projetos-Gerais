@@ -1,31 +1,31 @@
 import unidecode
 
-livros = [
-    {"id": 0, "titulo": "O Senhor dos Anéis", "autor": "J.R.R. Tolkien", "status": True},
-    {"id": 1, "titulo": "O Hobbit", "autor": "J.R.R. Tolkien", "status": False},
-    {"id": 2, "titulo": "1984", "autor": "George Orwell", "status": True},
-    {"id": 3, "titulo": "A Revolução dos Bichos", "autor": "George Orwell", "status": False},
-    {"id": 4, "titulo": "Dom Quixote", "autor": "Miguel de Cervantes", "status": True},
-    {"id": 5, "titulo": "Novelas Exemplares", "autor": "Miguel de Cervantes", "status": False},
-    {"id": 6, "titulo": "Orgulho e Preconceito", "autor": "Jane Austen", "status": True},
-    {"id": 7, "titulo": "Razão e Sensibilidade", "autor": "Jane Austen", "status": False},
-    {"id": 8, "titulo": "Guerra e Paz", "autor": "Liev Tolstói", "status": True},
-    {"id": 9, "titulo": "Anna Karenina", "autor": "Liev Tolstói", "status": False}
-]
+# livros = [
+#     {"id": 0, "titulo": "O Senhor dos Anéis", "autor": "J.R.R. Tolkien", "status": True},
+#     {"id": 1, "titulo": "O Hobbit", "autor": "J.R.R. Tolkien", "status": False},
+#     {"id": 2, "titulo": "1984", "autor": "George Orwell", "status": True},
+#     {"id": 3, "titulo": "A Revolução dos Bichos", "autor": "George Orwell", "status": False},
+#     {"id": 4, "titulo": "Dom Quixote", "autor": "Miguel de Cervantes", "status": True},
+#     {"id": 5, "titulo": "Novelas Exemplares", "autor": "Miguel de Cervantes", "status": False},
+#     {"id": 6, "titulo": "Orgulho e Preconceito", "autor": "Jane Austen", "status": True},
+#     {"id": 7, "titulo": "Razão e Sensibilidade", "autor": "Jane Austen", "status": False},
+#     {"id": 8, "titulo": "Guerra e Paz", "autor": "Liev Tolstói", "status": True},
+#     {"id": 9, "titulo": "Anna Karenina", "autor": "Liev Tolstói", "status": False}
+# ]
 
 
-membros = [
-    {"cadastro": 1, "nome": "Ana Silva", "historico": []},
-    {"cadastro": 2, "nome": "Bruno Costa", "historico": []},
-    {"cadastro": 3, "nome": "Carla Souza", "historico": []},
-    {"cadastro": 4, "nome": "Daniel Oliveira", "historico": []},
-    {"cadastro": 5, "nome": "Elena Ferreira", "historico": []},
-    {"cadastro": 6, "nome": "Felipe Santos", "historico": []},
-    {"cadastro": 7, "nome": "Gabriela Pereira", "historico": []},
-    {"cadastro": 8, "nome": "Henrique Lima", "historico": []},
-    {"cadastro": 9, "nome": "Isabel Mendes", "historico": []},
-    {"cadastro": 10, "nome": "João Almeida", "historico": []}
-     ]
+# membros = [
+#     {"cadastro": 1, "nome": "Ana Silva", "historico": []},
+#     {"cadastro": 2, "nome": "Bruno Costa", "historico": []},
+#     {"cadastro": 3, "nome": "Carla Souza", "historico": []},
+#     {"cadastro": 4, "nome": "Daniel Oliveira", "historico": []},
+#     {"cadastro": 5, "nome": "Elena Ferreira", "historico": []},
+#     {"cadastro": 6, "nome": "Felipe Santos", "historico": []},
+#     {"cadastro": 7, "nome": "Gabriela Pereira", "historico": []},
+#     {"cadastro": 8, "nome": "Henrique Lima", "historico": []},
+#     {"cadastro": 9, "nome": "Isabel Mendes", "historico": []},
+#     {"cadastro": 10, "nome": "João Almeida", "historico": []}
+#      ]
 
 
 
