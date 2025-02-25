@@ -2,7 +2,7 @@ import json
 import random
 
 try:
-    with open('akinator/dados.json', 'r') as file:
+    with open('Projetos-Gerais/akinator/dados.json', 'r') as file:
         dados = json.load(file)
 except FileNotFoundError:
     print("Arquivo não encontrado!")
