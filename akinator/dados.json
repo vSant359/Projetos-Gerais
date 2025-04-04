@@ -1,0 +1,296 @@
+[
+    {
+        "nome": "Leonardo DiCaprio",
+        "filmes": ["Titanic", "Inception", "The Revenant"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Beyoncé",
+        "filmes": ["Dreamgirls", "The Pink Panther", "Epic"],
+        "premios": ["Grammy", "MTV Music Awards"],
+        "outros": ["Cantor(a)", "Compositor(a)"]
+    },
+    {
+        "nome": "Will Smith",
+        "filmes": ["Men in Black", "Bad Boys", "The Pursuit of Happyness"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Scarlett Johansson",
+        "filmes": ["Avengers: Endgame", "Lost in Translation", "Lucy"],
+        "premios": ["BAFTA", "Golden Globe"],
+        "outros": ["Ator/atriz", "Diretor(a)"]
+    },
+    {
+        "nome": "Emma Watson",
+        "filmes": ["Harry Potter", "The Perks of Being a Wallflower", "Beauty and the Beast"],
+        "premios": ["MTV Movie Awards", "British Academy Film Awards"],
+        "outros": ["Ator/atriz", "Ativista"]
+    },
+    {
+        "nome": "Tom Hanks",
+        "filmes": ["Forrest Gump", "Cast Away", "The Terminal"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Johnny Depp",
+        "filmes": ["Pirates of the Caribbean", "Edward Scissorhands", "Charlie and the Chocolate Factory"],
+        "premios": ["Golden Globe", "Screen Actors Guild"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Meryl Streep",
+        "filmes": ["The Devil Wears Prada", "Sophie's Choice", "Kramer vs. Kramer"],
+        "premios": ["Oscar", "Golden Globe", "BAFTA"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Angelina Jolie",
+        "filmes": ["Mr. & Mrs. Smith", "Maleficent", "Girl, Interrupted"],
+        "premios": ["Oscar", "Golden Globe", "Screen Actors Guild"],
+        "outros": ["Ator/atriz", "Diretor(a)"]
+    },
+    {
+        "nome": "Brad Pitt",
+        "filmes": ["Fight Club", "Once Upon a Time in Hollywood", "12 Monkeys"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Jennifer Lawrence",
+        "filmes": ["The Hunger Games", "Silver Linings Playbook", "Joy"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Ryan Reynolds",
+        "filmes": ["Deadpool", "The Proposal", "6 Underground"],
+        "premios": ["Golden Globe", "People's Choice Award"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Robert Downey Jr.",
+        "filmes": ["Iron Man", "Sherlock Holmes", "The Avengers"],
+        "premios": ["Golden Globe", "People's Choice Award"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Hugh Jackman",
+        "filmes": ["The Prestige", "Les Misérables", "Logan"],
+        "premios": ["Golden Globe", "Tony Award"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Chris Hemsworth",
+        "filmes": ["Thor", "Avengers: Endgame", "Rush"],
+        "premios": ["People's Choice Award", "Teen Choice Award"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Gal Gadot",
+        "filmes": ["Wonder Woman", "Fast & Furious", "Justice League"],
+        "premios": ["MTV Movie Awards", "People's Choice Award"],
+        "outros": ["Ator/atriz", "Modelo"]
+    },
+    {
+        "nome": "Keanu Reeves",
+        "filmes": ["The Matrix", "John Wick", "Speed"],
+        "premios": ["MTV Movie Awards", "People's Choice Award"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Dwayne Johnson",
+        "filmes": ["The Scorpion King", "Jumanji", "Fast & Furious"],
+        "premios": ["People's Choice Award", "Teen Choice Award"],
+        "outros": ["Ator/atriz", "Produtor(a)"]
+    },
+    {
+        "nome": "Taylor Swift",
+        "filmes": ["Valentine's Day", "The Giver"],
+        "premios": ["Grammy", "American Music Awards"],
+        "outros": ["Cantor(a)", "Compositor(a)"]
+    },
+    {
+        "nome": "Lady Gaga",
+        "filmes": ["A Star is Born", "Machete Kills"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Cantor(a)", "Compositor(a)"]
+    },
+    {
+        "nome": "Morgan Freeman",
+        "filmes": ["Shawshank Redemption", "Driving Miss Daisy", "The Dark Knight"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Narrador"]
+    },
+    {
+        "nome": "Sandra Bullock",
+        "filmes": ["Gravity", "The Blind Side", "Speed"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtora"]
+    },
+    {
+        "nome": "Matthew McConaughey",
+        "filmes": ["Dallas Buyers Club", "Interstellar", "The Lincoln Lawyer"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtor"]
+    },
+    {
+        "nome": "Julia Roberts",
+        "filmes": ["Pretty Woman", "Erin Brockovich", "Ocean's Eleven"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtora"]
+    },
+    {
+        "nome": "Daniel Day-Lewis",
+        "filmes": ["There Will Be Blood", "Lincoln", "Gangs of New York"],
+        "premios": ["Oscar", "BAFTA"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Nicole Kidman",
+        "filmes": ["The Hours", "Moulin Rouge!", "Big Little Lies"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtora"]
+    },
+    {
+        "nome": "Cate Blanchett",
+        "filmes": ["Blue Jasmine", "Elizabeth", "The Lord of the Rings"],
+        "premios": ["Oscar", "Golden Globe", "BAFTA"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Matt Damon",
+        "filmes": ["Good Will Hunting", "The Martian", "Bourne Identity"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtor"]
+    },
+    {
+        "nome": "Charlize Theron",
+        "filmes": ["Mad Max: Fury Road", "Monster", "The Italian Job"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtora"]
+    },
+    {
+        "nome": "Emma Stone",
+        "filmes": ["La La Land", "Easy A", "The Help"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Ryan Gosling",
+        "filmes": ["La La Land", "Drive", "The Notebook"],
+        "premios": ["Golden Globe", "People's Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "John Travolta",
+        "filmes": ["Grease", "Pulp Fiction", "Saturday Night Fever"],
+        "premios": ["Golden Globe", "People's Choice Award"],
+        "outros": ["Ator/atriz", "Produtor"]
+    },
+    {
+        "nome": "Reese Witherspoon",
+        "filmes": ["Legally Blonde", "Walk the Line", "Big Little Lies"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtora"]
+    },
+    {
+        "nome": "Harrison Ford",
+        "filmes": ["Indiana Jones", "Star Wars", "Blade Runner"],
+        "premios": ["Golden Globe", "People's Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Lupita Nyong'o",
+        "filmes": ["12 Years a Slave", "Black Panther", "Us"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Chris Pratt",
+        "filmes": ["Guardians of the Galaxy", "Jurassic World", "The Lego Movie"],
+        "premios": ["People's Choice Award", "Teen Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Zac Efron",
+        "filmes": ["High School Musical", "The Greatest Showman", "Neighbors"],
+        "premios": ["Teen Choice Award", "People's Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Tom Cruise",
+        "filmes": ["Top Gun", "Mission: Impossible", "Rain Man"],
+        "premios": ["Golden Globe", "People's Choice Award"],
+        "outros": ["Ator/atriz", "Produtor"]
+    },
+    {
+        "nome": "Kate Winslet",
+        "filmes": ["Titanic", "The Reader", "Eternal Sunshine of the Spotless Mind"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Ben Affleck",
+        "filmes": ["Argo", "Good Will Hunting", "Batman v Superman"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Produtor"]
+    },
+    {
+        "nome": "Jennifer Aniston",
+        "filmes": ["Friends", "The Break-Up", "Marley & Me"],
+        "premios": ["Golden Globe", "People's Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Morgan Freeman",
+        "filmes": ["The Shawshank Redemption", "Driving Miss Daisy", "Bruce Almighty"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz", "Narrador"]
+    },
+    {
+        "nome": "Samuel L. Jackson",
+        "filmes": ["Pulp Fiction", "The Avengers", "Django Unchained"],
+        "premios": ["BAFTA", "People's Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Al Pacino",
+        "filmes": ["The Godfather", "Scarface", "Scent of a Woman"],
+        "premios": ["Oscar", "Golden Globe"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Sylvester Stallone",
+        "filmes": ["Rocky", "Rambo", "The Expendables"],
+        "premios": ["Golden Globe", "People's Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Vin Diesel",
+        "filmes": ["Fast & Furious", "The Chronicles of Riddick", "xXx"],
+        "premios": ["People's Choice Award", "Teen Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Shailene Woodley",
+        "filmes": ["Divergent", "The Fault in Our Stars", "Big Little Lies"],
+        "premios": ["Teen Choice Award", "People's Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Matthew Perry",
+        "filmes": ["Friends", "The Whole Nine Yards", "17 Again"],
+        "premios": ["People's Choice Award"],
+        "outros": ["Ator/atriz"]
+    },
+    {
+        "nome": "Jessica Chastain",
+        "filmes": ["Zero Dark Thirty", "The Martian", "Interstellar"],
+        "premios": ["Golden Globe", "BAFTA"],
+        "outros": ["Ator/atriz"]
+    }
+]
